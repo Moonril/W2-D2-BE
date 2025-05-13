@@ -9,12 +9,14 @@ Utilizzare l'interfaccia Set e l'implementazione HashSet
 
  */
 
+import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Scanner;
 
 public class Esercizio1 {
     public static void main(String[] args) {
-        HashSet<String> lista = new HashSet<>();
+        HashSet<String> lista = new HashSet<>(); // non permette duplicati
+        ArrayList<String> paroleDuplicate = new ArrayList<>();  // permette duplicati
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("quanti elementi vuoi inserire?");
@@ -26,10 +28,16 @@ public class Esercizio1 {
         for (int i = 0; i < numeroElementiScelti; i++) {
             String elementiScelti = scanner.nextLine();
             lista.add(elementiScelti);
+            if(!lista.add(elementiScelti)){
+                paroleDuplicate.add(elementiScelti);
+            }
         }
+
+
 
         System.out.println("finito");
         System.out.println(lista);
+        System.out.println(paroleDuplicate);
 
         System.out.println("Elenco delle parole distinte:");
         for (String parola : lista) {

@@ -2,6 +2,7 @@ package esercizio2;
 
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.Scanner;
 
 /*
 Esercizio #2
@@ -16,11 +17,14 @@ pari, altrimenti stampa i valori in posizioni dispari.
 public class Esercizio2 {
     public static void main(String[] args) {
 
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("numero");
+//        int n = scanner.nextInt();
 
         System.out.println(funzione1(5));
 
         System.out.println(funzione2(funzione1(5)));
-        System.out.println(funzione3());
+        //System.out.println(funzione3());
 
 
     }
@@ -31,8 +35,7 @@ public class Esercizio2 {
         Random random = new Random();
 
         for (int i = 0; i < n; i++) {
-            int max=100,min=0;
-            listaDiNumeriRandom.add(random.nextInt(max - min+1) + min);
+            listaDiNumeriRandom.add(random.nextInt(0,  101));
         }
 
         return listaDiNumeriRandom;
@@ -41,15 +44,25 @@ public class Esercizio2 {
     public static ArrayList<Integer> funzione2(ArrayList<Integer> lista ) {
         ArrayList<Integer> listaDueReverse = new ArrayList<>();
         for (int i = 0; i < lista.size(); i++) {
+            listaDueReverse.add(lista.get(lista.size()-i-1)); // per andare a ritroso
+        }
+        /*
+        for (int i = lista.size()-1; i >= 0; i--) {
             listaDueReverse.add(lista.get(i));
         }
+        */
+
         return listaDueReverse;
     }
 
     //terza
     public static void funzione3(ArrayList<Integer> lista, boolean ciao){
         if(ciao){
-            for (int i = 1; i <= 20; i++) if (i % 2 == 0) System.out.println(i);
+            for (int i = 1; i <= lista.size(); i=i+2) {
+
+                System.out.println(lista.get(i));
+
+            }
         }
     }
 
